@@ -45,27 +45,27 @@ class CategoriesApiService
                 'name' => $request->name
             ]
         );
-        return response()->noContent(201);
+        return response()->json(['message' => 'Successfully stored'], 201);
     }
 
     public function update(int $id, CategoryRequest $request)
     {
         Category::whereId($id)
             ->update($request->toArray());
-        return response()->noContent(201);
+        return response()->json(['message' => 'Successfully updated'], 201);
     }
 
     public function destroyById(int $id)
     {
         Category::whereId($id)
             ->delete();
-        return response()->noContent(201);
+        return response()->json(['message' => 'Successfully deleted'], 201);
     }
 
     public function destroy()
     {
         DB::table('categories')->delete();
-        return response()->noContent(201);
+        return response()->json(['message' => 'Successfully deleted'], 201);
     }
 }
 
