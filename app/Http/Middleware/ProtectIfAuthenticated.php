@@ -14,8 +14,8 @@ class ProtectIfAuthenticated
         if($request->user('sanctum') !== null){
             return response()->json(
                 [
-                    'message' => 'Action is forbidden.'
-                ], 403
+                    'message' => 'Method not alowed.'
+                ], 405
             );
         }
         return $next($request);
