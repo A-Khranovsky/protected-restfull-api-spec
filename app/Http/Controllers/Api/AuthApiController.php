@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Services\Api\AuthApiService;
 use Illuminate\Http\Request;
@@ -47,7 +48,7 @@ class AuthApiController
         return $this->authApiService->register($request);
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
         return $this->authApiService->login($request);
     }
