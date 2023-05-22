@@ -4,6 +4,7 @@
 namespace App\Services\Api;
 
 
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -37,7 +38,7 @@ class CategoriesApiService
         return response()->json($category);
     }
 
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
         Category::create(
             [
@@ -47,7 +48,7 @@ class CategoriesApiService
         return response()->noContent();
     }
 
-    public function update(int $id, Request $request)
+    public function update(int $id, CategoryRequest $request)
     {
         Category::whereId($id)
             ->update($request->toArray());

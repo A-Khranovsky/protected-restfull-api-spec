@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\CategoryRequest;
 use App\Services\Api\CategoriesApiService;
 
-use Illuminate\Http\Request;
 
 class CategoriesApiController
 {
@@ -25,12 +25,12 @@ class CategoriesApiController
         return $this->categoriesApiService->getById($id);
     }
 
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
         return $this->categoriesApiService->store($request);
     }
 
-    public function update($id, Request $request)
+    public function update($id, CategoryRequest $request)
     {
         return $this->categoriesApiService->update($id, $request);
     }
