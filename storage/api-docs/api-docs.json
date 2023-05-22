@@ -5,12 +5,12 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/login": {
+        "/api/v1/login": {
             "post": {
                 "tags": [
                     "auth"
                 ],
-                "summary": "Sign in",
+                "summary": "Log in",
                 "description": "Login by email, password",
                 "operationId": "authLogin",
                 "requestBody": {
@@ -27,16 +27,17 @@
                                     "email": {
                                         "type": "string",
                                         "format": "email",
-                                        "example": "user1@mail.com"
+                                        "example": "user@example.com"
                                     },
                                     "password": {
                                         "type": "string",
                                         "format": "password",
-                                        "example": "PassWord12345"
+                                        "example": "password"
                                     },
-                                    "persistent": {
-                                        "type": "boolean",
-                                        "example": "true"
+                                    "token_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "web"
                                     }
                                 },
                                 "type": "object"
@@ -45,15 +46,51 @@
                     }
                 },
                 "responses": {
-                    "422": {
-                        "description": "Wrong credentials response",
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/logout": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Logout",
+                "description": "Logout user and invalidate token",
+                "operationId": "authLogout",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Returns when user is not authenticated",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Sorry, wrong email address or password. Please try again"
+                                            "example": "Not authorized"
                                         }
                                     },
                                     "type": "object"
@@ -61,7 +98,33 @@
                             }
                         }
                     }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/categories": {
+            "get": {
+                "summary": "All categories",
+                "description": "Out put all the categories",
+                "responses": {
+                    "200": {
+                        "description": "Successfully done request"
+                    }
                 }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "sanctum": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
             }
         }
     }

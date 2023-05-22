@@ -5,6 +5,19 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\CategoryRequest;
 use App\Services\Api\CategoriesApiService;
 
+/**
+ * @OA\Get(
+ * path="/api/v1/categories",
+ * summary="All categories",
+ * description="Out put all the categories",
+ * @OA\Response(
+ *    response=200,
+ *    description="Successfully done request"
+ *   )
+ * )
+ */
+
+
 
 class CategoriesApiController
 {
