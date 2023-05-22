@@ -14,7 +14,7 @@ class ProtectIfAuthenticated
         if($request->user('sanctum') !== null){
             return response()->json(
                 [
-                    'message' => 'Method not alowed.'
+                    'message' => 'Method not allowed.'
                 ], 405
             );
         }
