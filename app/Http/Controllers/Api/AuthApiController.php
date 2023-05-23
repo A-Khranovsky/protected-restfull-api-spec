@@ -28,7 +28,7 @@ class AuthApiController
      * summary="Log in",
      * description="Login by email, password",
      * operationId="authLogin",
-     * tags={"auth"},
+     * tags={"Authentication"},
      * @OA\RequestBody(
      *    required=true,
      *    description="Pass user credentials",
@@ -74,12 +74,12 @@ class AuthApiController
 
     /**
      * @OA\Post(
-     * security={ {"sanctum": {} }},
+     *     security={ {"sanctum": {} }},
      * path="/api/v1/logout",
      * summary="Logout",
      * description="Logout user and invalidate token",
      * operationId="authLogout",
-     * tags={"auth"},
+     * tags={"Authentication"},
      *   @OA\Response(
      *      response=200,
      *       description="Success",
@@ -93,7 +93,7 @@ class AuthApiController
      *    @OA\JsonContent(
      *       @OA\Property(property="message", type="string", example="Not authorized"),
      *    )
-     * )
+     * ),
      * )
      */
     public function logout(Request $request)

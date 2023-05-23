@@ -8,7 +8,7 @@
         "/api/v1/login": {
             "post": {
                 "tags": [
-                    "auth"
+                    "Authentication"
                 ],
                 "summary": "Log in",
                 "description": "Login by email, password",
@@ -70,7 +70,7 @@
         "/api/v1/logout": {
             "post": {
                 "tags": [
-                    "auth"
+                    "Authentication"
                 ],
                 "summary": "Logout",
                 "description": "Logout user and invalidate token",
@@ -108,13 +108,54 @@
         },
         "/api/v1/categories": {
             "get": {
+                "tags": [
+                    "Category"
+                ],
                 "summary": "All categories",
-                "description": "Out put all the categories",
+                "description": "Output all the categories",
+                "operationId": "f06bd4db4a5726b3eeb29567d13b0301",
                 "responses": {
                     "200": {
                         "description": "Successfully done request"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/categories/{categoryId}": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Find category by id",
+                "description": "Output the category by id",
+                "operationId": "a007b36faea817518c90ae1a74c3fac1",
+                "parameters": [
+                    {
+                        "name": "categoryId",
+                        "in": "path",
+                        "description": "ID of category that needs to be shwon",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully done request"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             }
         }
     },
@@ -122,9 +163,10 @@
         "securitySchemes": {
             "sanctum": {
                 "type": "apiKey",
-                "description": "Enter token in format (Bearer <token>)",
+                "description": "Enter token in format (Bearer your_token)",
                 "name": "Authorization",
-                "in": "header"
+                "in": "header",
+                "scheme": "http"
             }
         }
     }

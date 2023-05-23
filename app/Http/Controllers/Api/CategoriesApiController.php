@@ -5,20 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\CategoryRequest;
 use App\Services\Api\CategoriesApiService;
 
-/**
- * @OA\Get(
- * path="/api/v1/categories",
- * summary="All categories",
- * description="Out put all the categories",
- * @OA\Response(
- *    response=200,
- *    description="Successfully done request"
- *   )
- * )
- */
-
-
-
 class CategoriesApiController
 {
     private CategoriesApiService $categoriesApiService;
@@ -28,11 +14,47 @@ class CategoriesApiController
         $this->categoriesApiService = $categoriesApiService;
     }
 
+    /**
+     * @OA\Get(
+     *     security={ {"sanctum": {} }},
+     * path="/api/v1/categories",
+     * summary="All categories",
+     * description="Output all the categories",
+     * tags={"Category"},
+     * @OA\Response(
+     *    response=200,
+     *    description="Successfully done request"
+     *   )
+     * )
+     */
     public function index()
     {
        return $this->categoriesApiService->getAll();
     }
 
+    /**
+     * @OA\Get(
+     *     security={ {"sanctum": {} }},
+     * path="/api/v1/categories/{categoryId}",
+     * summary="Find category by id",
+     * description="Output the category by id",
+     * tags={"Category"},
+     * @OA\Parameter(
+     *      name="categoryId",
+     *      in="path",
+     *      description="ID of category that needs to be shwon",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="integer",
+     *          format="int64"
+     *      )
+     * ),
+     * @OA\Response(
+     *    response=200,
+     *    description="Successfully done request"
+     *   )
+     * )
+     */
     public function show($id)
     {
         return $this->categoriesApiService->getById($id);

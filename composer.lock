@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "718c24cfc19284cadd44a8675055188e",
+    "content-hash": "eadca3bf6dd0c5c44be22d6a6d2c72b2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -124,31 +124,31 @@
         },
         {
             "name": "darkaonline/l5-swagger",
-            "version": "8.5.0",
+            "version": "8.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DarkaOnLine/L5-Swagger.git",
-                "reference": "8e61ce632fb90eb9d78cf34918d133c46baa93b4"
+                "reference": "0b1c3f5aca80fc710877bf7fdbab6d28d9b54f4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DarkaOnLine/L5-Swagger/zipball/8e61ce632fb90eb9d78cf34918d133c46baa93b4",
-                "reference": "8e61ce632fb90eb9d78cf34918d133c46baa93b4",
+                "url": "https://api.github.com/repos/DarkaOnLine/L5-Swagger/zipball/0b1c3f5aca80fc710877bf7fdbab6d28d9b54f4c",
+                "reference": "0b1c3f5aca80fc710877bf7fdbab6d28d9b54f4c",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "laravel/framework": "^10.0 || ^9.0 || >=8.40.0 || ^7.0",
+                "laravel/framework": "^9.0 || >=8.40.0 || ^7.0",
                 "php": "^7.2 || ^8.0",
                 "swagger-api/swagger-ui": "^3.0 || ^4.0",
                 "symfony/yaml": "^5.0 || ^6.0",
-                "zircote/swagger-php": "^3.2.0 || ^4.0.0"
+                "zircote/swagger-php": "^3.2 || ^4.0"
             },
             "require-dev": {
                 "mockery/mockery": "1.*",
-                "orchestra/testbench": "^8.0 || 7.* || ^6.15 || 5.*",
+                "orchestra/testbench": "7.* || ^6.15 || 5.*",
                 "php-coveralls/php-coveralls": "^2.0",
-                "phpunit/phpunit": "^10.0 || ^9.5"
+                "phpunit/phpunit": "^9.5"
             },
             "type": "library",
             "extra": {
@@ -191,7 +191,7 @@
             ],
             "support": {
                 "issues": "https://github.com/DarkaOnLine/L5-Swagger/issues",
-                "source": "https://github.com/DarkaOnLine/L5-Swagger/tree/8.5.0"
+                "source": "https://github.com/DarkaOnLine/L5-Swagger/tree/8.4.1"
             },
             "funding": [
                 {
@@ -199,7 +199,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-15T07:29:49+00:00"
+            "time": "2022-09-22T05:16:35+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
