@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class QueryFilter
 {
-   /*
+    /*
     * lt = little then
     * eq = equal
     * gt = greater then

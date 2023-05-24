@@ -21,6 +21,17 @@ class CategoriesApiController
      * summary="All categories",
      * description="Output all the categories",
      * tags={"Category"},
+     * @OA\Parameter(
+     *      name="query",
+     *      in="query",
+     *      allowReserved="true",
+     *      @OA\Schema(
+     *          type="object",
+     *          @OA\Property(
+     *              type="string"
+     *          ),
+     *      ),
+     * ),
      * @OA\Response(
      *    response=200,
      *    description="OK",

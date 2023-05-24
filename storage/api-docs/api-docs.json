@@ -47,7 +47,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "application/json": {}
                         }
@@ -77,7 +77,7 @@
                 "operationId": "authLogout",
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "OK",
                         "content": {
                             "application/json": {}
                         }
@@ -114,6 +114,21 @@
                 "summary": "All categories",
                 "description": "Output all the categories",
                 "operationId": "f06bd4db4a5726b3eeb29567d13b0301",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "allowReserved": "true",
+                        "schema": {
+                            "properties": {
+                                "": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK"
