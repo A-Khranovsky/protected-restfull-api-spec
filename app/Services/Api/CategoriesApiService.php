@@ -24,17 +24,17 @@ class CategoriesApiService
     public function getAll()
     {
         if (!is_null($this->filteredQuery)) {
-            $categories = $this->filteredQuery->get()->toArray();
+            $categories = $this->filteredQuery->get();
             return response()->json($categories);
         } else {
-            $categories = Category::all()->toArray();
+            $categories = Category::all();
             return response()->json($categories);
         }
     }
 
     public function getById(int $id)
     {
-        $category = Category::find($id)->toArray();
+        $category = Category::find($id);
         return response()->json($category);
     }
 
@@ -50,16 +50,30 @@ class CategoriesApiService
 
     public function update(int $id, CategoryRequest $request)
     {
-        Category::whereId($id)
-            ->update($request->toArray());
-        return response()->json(['message' => 'Successfully updated'], 201);
+        $category = Category::whereId($id)->firstOr(function(){
+            return null;
+        });
+
+        if(is_null($category)){
+            return response()->json(['message' => 'Wrong Id'], 400);
+        } else {
+            $category->update($request->toArray());
+            return response()->json(['message' => 'Successfully updated'], 201);
+        }
     }
 
     public function destroyById(int $id)
     {
-        Category::whereId($id)
-            ->delete();
-        return response()->json(['message' => 'Successfully deleted'], 201);
+        $category = Category::whereId($id)->firstOr(function(){
+            return null;
+        });
+
+        if(is_null($category)){
+            return response()->json(['message' => 'Wrong Id'], 400);
+        } else {
+            $category->delete();
+            return response()->json(['message' => 'Successfully deleted'], 201);
+        }
     }
 
     public function destroy()

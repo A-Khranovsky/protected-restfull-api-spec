@@ -41,7 +41,7 @@ class AuthApiController
      * ),
      *   @OA\Response(
      *      response=200,
-     *       description="Success",
+     *       description="OK",
      *      @OA\MediaType(
      *           mediaType="application/json",
      *      )
@@ -82,7 +82,7 @@ class AuthApiController
      * tags={"Authentication"},
      *   @OA\Response(
      *      response=200,
-     *       description="Success",
+     *       description="OK",
      *      @OA\MediaType(
      *           mediaType="application/json",
      *      )
