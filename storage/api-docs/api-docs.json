@@ -191,6 +191,39 @@
                         "sanctum": []
                     }
                 ]
+            },
+            "delete": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Delete all categories",
+                "description": "Delete all categories",
+                "operationId": "deleteAllCategories",
+                "responses": {
+                    "201": {
+                        "description": "Successfully deleted",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             }
         },
         "/api/v1/categories/{categoryId}": {
@@ -224,12 +257,57 @@
                     }
                 ]
             },
+            "delete": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Delete category by id",
+                "description": "Delete category by id",
+                "operationId": "deleteCategory",
+                "parameters": [
+                    {
+                        "name": "categoryId",
+                        "in": "path",
+                        "description": "ID of category that needs to be deleted",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successfully deleted",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
             "patch": {
                 "tags": [
                     "Category"
                 ],
-                "summary": "Update by id category",
-                "description": "Update by id category",
+                "summary": "Update category by id",
+                "description": "Update category by id",
                 "operationId": "updateCategory",
                 "parameters": [
                     {
@@ -266,7 +344,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Successfully stored",
+                        "description": "Successfully updated",
                         "content": {
                             "application/json": {}
                         }

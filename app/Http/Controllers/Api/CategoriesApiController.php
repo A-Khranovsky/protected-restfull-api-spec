@@ -171,11 +171,87 @@ class CategoriesApiController
         return $this->categoriesApiService->update($id, $request);
     }
 
+    /**
+     * @OA\Delete(
+     *     security={ {"sanctum": {} }},
+     * path="/api/v1/categories/{categoryId}",
+     * summary="Delete category by id",
+     * description="Delete category by id",
+     * operationId="deleteCategory",
+     * tags={"Category"},
+     * @OA\Parameter(
+     *      name="categoryId",
+     *      in="path",
+     *      description="ID of category that needs to be deleted",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="integer",
+     *          format="int64"
+     *      )
+     * ),
+     *   @OA\Response(
+     *      response=201,
+     *       description="Successfully deleted",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=401,
+     *       description="Unauthenticated"
+     *   ),
+     *   @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *)
+     **/
     public function destroyById(int $id)
     {
         return $this->categoriesApiService->destroyById($id);
     }
 
+    /**
+     * @OA\Delete(
+     *     security={ {"sanctum": {} }},
+     * path="/api/v1/categories",
+     * summary="Delete all categories",
+     * description="Delete all categories",
+     * operationId="deleteAllCategories",
+     * tags={"Category"},
+     *   @OA\Response(
+     *      response=201,
+     *       description="Successfully deleted",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=401,
+     *       description="Unauthenticated"
+     *   ),
+     *   @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *)
+     **/
     public function destroy()
     {
         return $this->categoriesApiService->destroy();
