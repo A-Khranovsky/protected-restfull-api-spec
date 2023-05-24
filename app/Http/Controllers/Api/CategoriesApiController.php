@@ -69,6 +69,47 @@ class CategoriesApiController
         return $this->categoriesApiService->getById($id);
     }
 
+    /**
+     * @OA\Post(
+     *     security={ {"sanctum": {} }},
+     * path="/api/v1/categories",
+     * summary="Store new category",
+     * description="Store new category",
+     * operationId="createNewCategory",
+     * tags={"Category"},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Enter category name",
+     *    @OA\JsonContent(
+     *       required={"email","password"},
+     *       @OA\Property(property="name", type="string", format="string", example="Qwerty"),
+     *    ),
+     * ),
+     *   @OA\Response(
+     *      response=201,
+     *       description="Successfully stored",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=401,
+     *       description="Unauthenticated"
+     *   ),
+     *   @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *)
+     **/
     public function store(CategoryRequest $request)
     {
         return $this->categoriesApiService->store($request);
