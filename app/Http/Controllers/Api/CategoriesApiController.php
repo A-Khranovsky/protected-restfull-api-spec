@@ -23,13 +23,20 @@ class CategoriesApiController
      * tags={"Category"},
      * @OA\Response(
      *    response=200,
-     *    description="Successfully done request",
-     *    @OA\JsonContent(ref="#/components/schemas/CategoryResource")
+     *    description="OK",
      *   ),
      *     @OA\Response(
      *          response=401,
      *          description="Unauthenticated.",
      *      ),
+     *   @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
      *      @OA\Response(
      *          response=403,
      *          description="Forbidden"
@@ -38,7 +45,7 @@ class CategoriesApiController
      */
     public function index()
     {
-       return $this->categoriesApiService->getAll();
+        return $this->categoriesApiService->getAll();
     }
 
     /**
@@ -60,8 +67,24 @@ class CategoriesApiController
      * ),
      * @OA\Response(
      *    response=200,
-     *    description="Successfully done request"
-     *   )
+     *    description="OK"
+     *   ),
+     *   @OA\Response(
+     *      response=401,
+     *       description="Unauthenticated."
+     *   ),
+     *   @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
      * )
      */
     public function show($id)
@@ -94,7 +117,7 @@ class CategoriesApiController
      *   ),
      *   @OA\Response(
      *      response=401,
-     *       description="Unauthenticated"
+     *       description="Unauthenticated."
      *   ),
      *   @OA\Response(
      *      response=400,
