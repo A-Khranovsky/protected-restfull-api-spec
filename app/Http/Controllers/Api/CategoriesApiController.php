@@ -23,8 +23,17 @@ class CategoriesApiController
      * tags={"Category"},
      * @OA\Response(
      *    response=200,
-     *    description="Successfully done request"
-     *   )
+     *    description="Successfully done request",
+     *    @OA\JsonContent(ref="#/components/schemas/CategoryResource")
+     *   ),
+     *     @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated.",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
      * )
      */
     public function index()
