@@ -81,7 +81,7 @@ class CategoriesApiController
      *    required=true,
      *    description="Enter category name",
      *    @OA\JsonContent(
-     *       required={"email","password"},
+     *       required={"name"},
      *       @OA\Property(property="name", type="string", format="string", example="Qwerty"),
      *    ),
      * ),
@@ -115,6 +115,57 @@ class CategoriesApiController
         return $this->categoriesApiService->store($request);
     }
 
+    /**
+     * @OA\Patch(
+     *     security={ {"sanctum": {} }},
+     * path="/api/v1/categories/{categoryId}",
+     * summary="Update category by id",
+     * description="Update category by id",
+     * operationId="updateCategory",
+     * tags={"Category"},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Enter new category values",
+     *    @OA\JsonContent(
+     *       required={"name"},
+     *       @OA\Property(property="name", type="string", format="string", example="QWERTY"),
+     *    ),
+     * ),
+     * @OA\Parameter(
+     *      name="categoryId",
+     *      in="path",
+     *      description="ID of category that needs to be updated",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="integer",
+     *          format="int64"
+     *      )
+     * ),
+     *   @OA\Response(
+     *      response=201,
+     *       description="Successfully updated",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=401,
+     *       description="Unauthenticated"
+     *   ),
+     *   @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *)
+     **/
     public function update($id, CategoryRequest $request)
     {
         return $this->categoriesApiService->update($id, $request);
