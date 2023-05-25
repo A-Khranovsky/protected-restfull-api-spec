@@ -33,7 +33,7 @@ class AuthApiService
                 'message' => 'User ' . $user->name . ' successfully registered and logged in.',
                 'bearer_token' => $token->plainTextToken
             ];
-        return response()->json($result);
+        return response()->json($result,201);
     }
 
 

@@ -17,6 +17,35 @@ class AuthApiController
         $this->authApiService = $authApiService;
     }
 
+    /**
+     * @OA\Post(
+     * path="/api/v1/register",
+     * summary="User registration",
+     * description="Registration of the new user and logging in",
+     * operationId="authRegister",
+     * tags={"Authentication"},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Pass user credentials",
+     *    @OA\JsonContent(
+     *       required={"name", "email", "password", "password_confirmation", "token_name"},
+     *       @OA\Property(property="name", type="string", format="string", example="User"),
+     *       @OA\Property(property="email", type="string", format="email", example="user@example.com"),
+     *       @OA\Property(property="password", type="string", format="password", example="password"),
+     *       @OA\Property(property="password_confirmation", type="string", format="password", example="password"),
+     *       @OA\Property(property="token_name", type="string", format="string", example="web"),
+     *    ),
+     * ),
+     * @OA\Response(
+     *    response=201,
+     *    description="Created",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="message", type="string", example="User <user name> successfully registered and logged in."),
+     *       @OA\Property(property="bearer_token", type="string", example="1|exampleiAARmlQyNFLV6mhmwf41xk1I9TyIOOZkZ"),
+     *    )
+     * ),
+     *)
+     **/
     public function register(RegisterRequest $request)
     {
         return $this->authApiService->register($request);
