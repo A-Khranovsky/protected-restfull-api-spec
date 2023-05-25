@@ -206,31 +206,40 @@ class CategoriesApiController
      *   @OA\Response(
      *      response=201,
      *       description="Successfully updated",
-     *      @OA\MediaType(
-     *           mediaType="application/json",
-     *      )
+     *     @OA\JsonContent(
+     *          type="object",
+     *          @OA\Property(
+     *                         property="message",
+     *                         type="string",
+     *                         example="Successfully updated"
+     *                      ),
+     *          ),
      *   ),
      *   @OA\Response(
      *      response=401,
-     *       description="Unauthenticated"
+     *       description="Unauthenticated.",
+     *       @OA\JsonContent(
+     *          type="object",
+     *          @OA\Property(
+     *                         property="message",
+     *                         type="string",
+     *                         example="Unauthenticated."
+     *                      ),
+     *          ),
      *   ),
      *   @OA\Response(
      *      response=400,
-     *      description="Bad Request"
-     *   ),
-     *   @OA\Response(
-     *      response=404,
-     *      description="Not found"
-     *   ),
-     *      @OA\Response(
-     *          response=403,
-     *          description="Forbidden"
-     *      ),
-     * @OA\Response(
-     *          response=500,
-     *          description="Internal Server Error"
-     *      )
-     * )
+     *      description="Bad Request",
+     *      @OA\JsonContent(
+     *          type="object",
+     *          @OA\Property(
+     *                         property="message",
+     *                         type="string",
+     *                         example="Wrong Id"
+     *                      ),
+     *          ),
+     *     )
+     *
      *)
      **/
     public function update($id, CategoryRequest $request)
