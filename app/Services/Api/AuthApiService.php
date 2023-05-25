@@ -59,7 +59,7 @@ class AuthApiService
                 [
                     'message' => 'Wrong login or password, or wrong login and password.'
                 ];
-            return response()->json($result);
+            return response()->json($result, 400);
         }
     }
 

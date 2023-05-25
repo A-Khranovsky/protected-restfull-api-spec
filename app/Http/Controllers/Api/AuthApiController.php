@@ -42,26 +42,18 @@ class AuthApiController
      *   @OA\Response(
      *      response=200,
      *       description="OK",
-     *      @OA\MediaType(
-     *           mediaType="application/json",
-     *      )
-     *   ),
-     *   @OA\Response(
-     *      response=401,
-     *       description="Unauthenticated"
+     *    @OA\JsonContent(
+     *       @OA\Property(property="message", type="string", example="User <user name> successfully logged in."),
+     *       @OA\Property(property="bearer_token", type="string", example="1|exampleiAARmlQyNFLV6mhmwf41xk1I9TyIOOZkZ"),
+     *    )
      *   ),
      *   @OA\Response(
      *      response=400,
-     *      description="Bad Request"
+     *      description="Bad Request",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="message", type="string", example="Wrong login or password, or wrong login and password."),
+     *    )
      *   ),
-     *   @OA\Response(
-     *      response=404,
-     *      description="Not found"
-     *   ),
-     *      @OA\Response(
-     *          response=403,
-     *          description="Forbidden"
-     *      )
      *)
      **/
 
@@ -82,16 +74,16 @@ class AuthApiController
      * tags={"Authentication"},
      *   @OA\Response(
      *      response=200,
-     *       description="OK",
-     *      @OA\MediaType(
-     *           mediaType="application/json",
-     *      )
+     *      description="OK",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="message", type="string", example="User <user name> successfully logged out."),
+     *    )
      *   ),
      * @OA\Response(
      *    response=401,
-     *    description="Returns when user is not authenticated",
+     *    description="Unauthenticated.",
      *    @OA\JsonContent(
-     *       @OA\Property(property="message", type="string", example="Not authorized"),
+     *       @OA\Property(property="message", type="string", example="Unauthenticated."),
      *    )
      * ),
      * )

@@ -43,27 +43,45 @@ class CategoriesApiController
      * @OA\Response(
      *    response=200,
      *    description="OK",
+     *        @OA\JsonContent(
+     *                type="array",
+     *                @OA\Items(
+     *                      @OA\Property(
+     *                         property="id",
+     *                         type="integer",
+     *                         example="10"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="name",
+     *                         type="string",
+     *                         example="Qwerty"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="created_at",
+     *                         type="string",
+     *                         example="2023-05-22 13:04:02"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="updated_at",
+     *                         type="string",
+     *                         example="2023-05-22 13:04:03"
+     *                      ),
+     *
+     *             ),
+     *        ),
      *   ),
      *     @OA\Response(
      *          response=401,
      *          description="Unauthenticated.",
+     *        @OA\JsonContent(
+     *          type="object",
+     *          @OA\Property(
+     *                         property="message",
+     *                         type="string",
+     *                         example="Unauthenticated."
+     *                      ),
+     *          ),
      *      ),
-     *   @OA\Response(
-     *      response=400,
-     *      description="Bad Request"
-     *   ),
-     *   @OA\Response(
-     *      response=404,
-     *      description="Not found"
-     *   ),
-     *      @OA\Response(
-     *          response=403,
-     *          description="Forbidden"
-     *      ),
-     * @OA\Response(
-     *          response=500,
-     *          description="Internal Server Error"
-     *      )
      * )
      */
     public function index()
@@ -107,7 +125,12 @@ class CategoriesApiController
      *      @OA\Response(
      *          response=403,
      *          description="Forbidden"
+     *      ),
+     * @OA\Response(
+     *          response=500,
+     *          description="Internal Server Error"
      *      )
+     * )
      * )
      */
     public function show($id)
@@ -153,7 +176,12 @@ class CategoriesApiController
      *      @OA\Response(
      *          response=403,
      *          description="Forbidden"
+     *      ),
+     * @OA\Response(
+     *          response=500,
+     *          description="Internal Server Error"
      *      )
+     * )
      *)
      **/
     public function store(CategoryRequest $request)
@@ -209,7 +237,12 @@ class CategoriesApiController
      *      @OA\Response(
      *          response=403,
      *          description="Forbidden"
+     *      ),
+     * @OA\Response(
+     *          response=500,
+     *          description="Internal Server Error"
      *      )
+     * )
      *)
      **/
     public function update($id, CategoryRequest $request)
@@ -257,7 +290,12 @@ class CategoriesApiController
      *      @OA\Response(
      *          response=403,
      *          description="Forbidden"
+     *      ),
+     * @OA\Response(
+     *          response=500,
+     *          description="Internal Server Error"
      *      )
+     * )
      *)
      **/
     public function destroyById(int $id)
@@ -295,7 +333,12 @@ class CategoriesApiController
      *      @OA\Response(
      *          response=403,
      *          description="Forbidden"
+     *      ),
+     * @OA\Response(
+     *          response=500,
+     *          description="Internal Server Error"
      *      )
+     * )
      *)
      **/
     public function destroy()

@@ -50,20 +50,38 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "application/json": {}
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User <user name> successfully logged in."
+                                        },
+                                        "bearer_token": {
+                                            "type": "string",
+                                            "example": "1|exampleiAARmlQyNFLV6mhmwf41xk1I9TyIOOZkZ"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
                         }
                     },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
                     "400": {
-                        "description": "Bad Request"
-                    },
-                    "404": {
-                        "description": "not found"
-                    },
-                    "403": {
-                        "description": "Forbidden"
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Wrong login or password, or wrong login and password."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -80,18 +98,28 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "application/json": {}
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User <user name> successfully logged out."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
                         }
                     },
                     "401": {
-                        "description": "Returns when user is not authenticated",
+                        "description": "Unauthenticated.",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Not authorized"
+                                            "example": "Unauthenticated."
                                         }
                                     },
                                     "type": "object"
@@ -154,22 +182,51 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK"
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": "10"
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Qwerty"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "example": "2023-05-22 13:04:02"
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "example": "2023-05-22 13:04:03"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
                     },
                     "401": {
-                        "description": "Unauthenticated."
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "404": {
-                        "description": "Not found"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "500": {
-                        "description": "Internal Server Error"
+                        "description": "Unauthenticated.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 },
                 "security": [
@@ -220,10 +277,13 @@
                         "description": "Bad Request"
                     },
                     "404": {
-                        "description": "not found"
+                        "description": "Not found"
                     },
                     "403": {
                         "description": "Forbidden"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 },
                 "security": [
@@ -253,10 +313,13 @@
                         "description": "Bad Request"
                     },
                     "404": {
-                        "description": "not found"
+                        "description": "Not found"
                     },
                     "403": {
                         "description": "Forbidden"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 },
                 "security": [
@@ -297,10 +360,13 @@
                         "description": "Bad Request"
                     },
                     "404": {
-                        "description": "not found"
+                        "description": "Not found"
                     },
                     "403": {
                         "description": "Forbidden"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 },
                 "security": [
@@ -342,10 +408,13 @@
                         "description": "Bad Request"
                     },
                     "404": {
-                        "description": "not found"
+                        "description": "Not found"
                     },
                     "403": {
                         "description": "Forbidden"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 },
                 "security": [
@@ -408,10 +477,13 @@
                         "description": "Bad Request"
                     },
                     "404": {
-                        "description": "not found"
+                        "description": "Not found"
                     },
                     "403": {
                         "description": "Forbidden"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 },
                 "security": [
