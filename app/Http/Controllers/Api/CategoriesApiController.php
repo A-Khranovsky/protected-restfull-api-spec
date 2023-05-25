@@ -22,14 +22,22 @@ class CategoriesApiController
      * description="Output all the categories",
      * tags={"Category"},
      * @OA\Parameter(
-     *      name="query",
+     *      name="Id query params",
      *      in="query",
      *      allowReserved="true",
      *      @OA\Schema(
      *          type="object",
-     *          @OA\Property(
-     *              type="string"
-     *          ),
+     *          @OA\Property(property="id[gt]", type="integer", format="int64", example="1"),
+     *          @OA\Property(property="id[lt]", type="integer", format="int64", example="100"),
+     *      ),
+     * ),
+     * @OA\Parameter(
+     *      name="Name query params",
+     *      in="query",
+     *      allowReserved="true",
+     *      @OA\Schema(
+     *          type="object",
+     *          @OA\Property(property="name[lk]", type="string", format="string", example="q"),
      *      ),
      * ),
      * @OA\Response(
@@ -46,11 +54,15 @@ class CategoriesApiController
      *   ),
      *   @OA\Response(
      *      response=404,
-     *      description="not found"
+     *      description="Not found"
      *   ),
      *      @OA\Response(
      *          response=403,
      *          description="Forbidden"
+     *      ),
+     * @OA\Response(
+     *          response=500,
+     *          description="Internal Server Error"
      *      )
      * )
      */

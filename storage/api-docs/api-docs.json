@@ -21,7 +21,8 @@
                             "schema": {
                                 "required": [
                                     "email",
-                                    "password"
+                                    "password",
+                                    "token_name"
                                 ],
                                 "properties": {
                                     "email": {
@@ -116,13 +117,35 @@
                 "operationId": "f06bd4db4a5726b3eeb29567d13b0301",
                 "parameters": [
                     {
-                        "name": "query",
+                        "name": "Id query params",
                         "in": "query",
                         "allowReserved": "true",
                         "schema": {
                             "properties": {
-                                "": {
-                                    "type": "string"
+                                "id[gt]": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "example": "1"
+                                },
+                                "id[lt]": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "example": "100"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "Name query params",
+                        "in": "query",
+                        "allowReserved": "true",
+                        "schema": {
+                            "properties": {
+                                "name[lk]": {
+                                    "type": "string",
+                                    "format": "string",
+                                    "example": "q"
                                 }
                             },
                             "type": "object"
@@ -140,10 +163,13 @@
                         "description": "Bad Request"
                     },
                     "404": {
-                        "description": "not found"
+                        "description": "Not found"
                     },
                     "403": {
                         "description": "Forbidden"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 },
                 "security": [

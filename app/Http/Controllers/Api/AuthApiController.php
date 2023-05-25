@@ -33,7 +33,7 @@ class AuthApiController
      *    required=true,
      *    description="Pass user credentials",
      *    @OA\JsonContent(
-     *       required={"email","password"},
+     *       required={"email","password", "token_name"},
      *       @OA\Property(property="email", type="string", format="email", example="user@example.com"),
      *       @OA\Property(property="password", type="string", format="password", example="password"),
      *       @OA\Property(property="token_name", type="string", format="string", example="web"),
