@@ -108,29 +108,21 @@ class CategoriesApiController
      * ),
      * @OA\Response(
      *    response=200,
-     *    description="OK"
+     *    description="OK",
+     *     @OA\JsonContent(ref="#/components/schemas/Category")
      *   ),
-     *   @OA\Response(
-     *      response=401,
-     *       description="Unauthenticated."
-     *   ),
-     *   @OA\Response(
-     *      response=400,
-     *      description="Bad Request"
-     *   ),
-     *   @OA\Response(
-     *      response=404,
-     *      description="Not found"
-     *   ),
-     *      @OA\Response(
-     *          response=403,
-     *          description="Forbidden"
+     *     @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated.",
+     *        @OA\JsonContent(
+     *          type="object",
+     *          @OA\Property(
+     *                         property="message",
+     *                         type="string",
+     *                         example="Unauthenticated."
+     *                      ),
+     *          ),
      *      ),
-     * @OA\Response(
-     *          response=500,
-     *          description="Internal Server Error"
-     *      )
-     * )
      * )
      */
     public function show($id)
