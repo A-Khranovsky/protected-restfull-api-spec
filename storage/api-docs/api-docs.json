@@ -428,23 +428,50 @@
                     "201": {
                         "description": "Successfully deleted",
                         "content": {
-                            "application/json": {}
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Successfully deleted"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
                         }
                     },
                     "401": {
-                        "description": "Unauthenticated"
+                        "description": "Unauthenticated.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad Request"
-                    },
-                    "404": {
-                        "description": "Not found"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "500": {
-                        "description": "Internal Server Error"
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Wrong Id"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 },
                 "security": [
