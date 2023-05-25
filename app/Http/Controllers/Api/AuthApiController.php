@@ -56,7 +56,7 @@ class AuthApiController
      *   ),
      *   @OA\Response(
      *      response=404,
-     *      description="not found"
+     *      description="Not found"
      *   ),
      *      @OA\Response(
      *          response=403,
