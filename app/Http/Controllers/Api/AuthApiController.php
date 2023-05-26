@@ -104,10 +104,26 @@ class AuthApiController
      *       @OA\Property(property="message", type="string", example="Wrong login or password, or wrong login and password."),
      *    )
      *   ),
+     * @OA\Response(
+     *    response=422,
+     *    description="Unprocessable Content",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="message", type="string", example="The given data was invalid."),
+     *       @OA\Property(property="erorrs", type="object",
+     *          @OA\Property(property="email", type="array",
+     *              @OA\Items(type="string", example="The email field is required."),
+     *          ),
+     *          @OA\Property(property="password", type="array",
+     *              @OA\Items(type="string", example="The password field is required."),
+     *          ),
+     *          @OA\Property(property="token_name", type="array",
+     *              @OA\Items(type="string", example="The token name field is required."),
+     *          ),
+     *       ),
+     *    )
+     * ),
      *)
      **/
-
-
     public function login(LoginRequest $request)
     {
         return $this->authApiService->login($request);
