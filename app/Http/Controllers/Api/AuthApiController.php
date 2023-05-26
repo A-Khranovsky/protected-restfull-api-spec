@@ -44,6 +44,27 @@ class AuthApiController
      *       @OA\Property(property="bearer_token", type="string", example="1|exampleiAARmlQyNFLV6mhmwf41xk1I9TyIOOZkZ"),
      *    )
      * ),
+     * @OA\Response(
+     *    response=422,
+     *    description="Unprocessable Content",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="message", type="string", example="The given data was invalid."),
+     *       @OA\Property(property="erorrs", type="object",
+     *          @OA\Property(property="name", type="array",
+     *              @OA\Items(type="string", example="The name field is required."),
+     *          ),
+     *          @OA\Property(property="email", type="array",
+     *              @OA\Items(type="string", example="The email field is required."),
+     *          ),
+     *          @OA\Property(property="password", type="array",
+     *              @OA\Items(type="string", example="The password field is required."),
+     *          ),
+     *          @OA\Property(property="token_name", type="array",
+     *              @OA\Items(type="string", example="The token name field is required."),
+     *          ),
+     *       ),
+     *    )
+     * ),
      *)
      **/
     public function register(RegisterRequest $request)
