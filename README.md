@@ -1,5 +1,5 @@
 ####Vocation
-Practice with RESTfull APi, OpenApi-swagger specification, protection by Sanctum
+Practice with RESTfull APi, OpenApi-swagger specification, protection by Sanctum, request validation.
 
 ####Description
 Project "Storage of the categories in DB with manipulation through REST API". 
