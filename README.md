@@ -11,11 +11,12 @@ and manipulate the data:
 * update category by id
 * delete category by id
 * delete all the categories
+
 This actions are protected from unauthenticated user. Every request to protected actions(endpoints, routes) is 
 checked for bearer token using behind Sanctum.
 
-Specification based on annotations in classes hierarchy and allows to see input, output interfaces, input the data
-make request and watch the result.
+Specification based on annotations in classes hierarchy. Specification allows: to see input, output interfaces;
+to input the data, make request and watch the result.
 
 ###How to run
 * clone the repository
