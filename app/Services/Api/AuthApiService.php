@@ -39,7 +39,6 @@ class AuthApiService
 
     public function login(LoginRequest $request)
     {
-        //if (Auth::attempt(
         if(Auth::guard('web')->attempt(
             [
                 'email' => $request->email,
