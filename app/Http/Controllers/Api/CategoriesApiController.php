@@ -249,7 +249,19 @@ class CategoriesApiController
      *                  example="Wrong Id"
      *              ),
      *          ),
-     *      )
+     *      ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Content",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="message", type="string", example="The given data was invalid."),
+     *                  @OA\Property(property="erorrs", type="object",
+     *                  @OA\Property(property="name", type="array",
+     *                      @OA\Items(type="string", example="The name field is required."),
+     *                  ),
+     *              ),
+     *          ),
+     *     )
      * )
      **/
     public function update($id, CategoryRequest $request)
@@ -310,7 +322,7 @@ class CategoriesApiController
      *                  example="Wrong Id"
      *              ),
      *          ),
-     *      )
+     *      ),
      * )
      **/
     public function destroyById(int $id)
